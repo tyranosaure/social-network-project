@@ -1,0 +1,20 @@
+:root {
+	@media (prefers-color-scheme: light) {
+		--app-main-background-color: rgba(232, 241, 242, 0.5);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		--app-main-background-color: rgb(23, 21, 21);
+	}
+}
+
+.app {
+	height: 100vh;
+	background-color: var(--app-main-background-color);
+	display: flex;
+	flex-direction: column;
+
+	> :not(header) {
+		flex: 1;
+	}
+}

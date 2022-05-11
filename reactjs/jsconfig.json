@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"baseUrl": ".",
+		"jsx": "react",
+		"target": "ES6",
+		"allowSyntheticDefaultImports": true,
+		"paths": {
+			"@components/*": ["./src/components/*"],
+			"@views/*": ["./src/views/*"],
+			"@styles/*": ["./src/styles/*"],
+			"@services/*": ["./src/services/*"],
+			"@assets/*": ["./src/assets/*"],
+			"@requests/*": ["./src/requests/*"]
+		}
+	},
+	"exclude": ["node_modules", "build"]
+}

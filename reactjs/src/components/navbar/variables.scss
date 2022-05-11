@@ -1,0 +1,24 @@
+:root {
+	@media (prefers-color-scheme: light) {
+		--header-background-color: rgba(232, 241, 242, 0.75);
+		--header-border-bottom-color: rgba(0, 0, 0, 0.1);
+
+		--header-link-text-color: rgb(35, 31, 32);
+		--header-link-background-color-hover: rgb(126, 189, 194);
+		--header-link-text-color-hover: rgb(255, 255, 255);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		--header-background-color: rgb(35, 31, 32);
+		--header-border-bottom-color: rgba(199, 199, 199, 0.1);
+
+		--header-link-text-color: rgb(199, 199, 199);
+		--header-link-background-color-hover: rgb(243, 223, 162);
+		--header-link-text-color-hover: rgb(35, 31, 32);
+	}
+
+	--button-disconnect-background-color: rgb(187, 68, 48);
+	--button-disconnect-background-color-hover: rgb(252, 170, 103);
+	--button-connect-background-color: rgb(87, 204, 153);
+	--button-connect-background-color-hover: rgb(56, 163, 165);
+}

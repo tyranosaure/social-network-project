@@ -1,0 +1,124 @@
+@import url("./variables.scss");
+.navbar {
+	height: 4.5rem;
+	margin-bottom: 1rem;
+	position: relative;
+	* {
+		transition: all 200ms ease;
+	}
+	> nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 4.5rem;
+		background-color: var(--header-background-color);
+		border-bottom: 1px solid var(--header-border-bottom-color);
+
+		> .container {
+			height: 100%;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 0px 2rem;
+
+			> .logo-container {
+				> img {
+					height: 2.5rem;
+					width: auto;
+					object-fit: cover;
+
+					&:hover {
+						animation-duration: 400ms;
+						animation-name: wiggle;
+					}
+
+					@keyframes wiggle {
+						0% {
+							transform: rotate(0);
+						}
+						25% {
+							transform: rotate(20deg);
+						}
+						55% {
+							transform: rotate(-20deg);
+						}
+						80% {
+							transform: rotate(15deg);
+						}
+						90% {
+							transform: rotate(-10deg);
+						}
+						100% {
+							transform: rotate(0);
+						}
+					}
+				}
+			}
+
+			.right-side-container {
+				display: flex;
+				align-items: center;
+				> .link-container {
+					> *:not(:last-child) {
+						margin-right: 1rem;
+					}
+					> .link {
+						color: var(--header-link-text-color);
+						font-weight: 500;
+						padding: 5px 10px;
+						border-radius: 999px;
+						&:hover {
+							background-color: var(--header-link-background-color-hover);
+							color: var(--header-link-text-color-hover);
+						}
+					}
+				}
+
+				> .login {
+					border: none;
+					padding: 10px 15px;
+					margin-left: 1rem;
+					border-radius: 999px;
+					font-size: 1rem;
+					font-weight: 600;
+					cursor: pointer;
+					color: rgba(black, 0.5);
+
+					&:hover {
+						color: black;
+					}
+					&.connect {
+						background-color: var(--button-connect-background-color);
+
+						&:hover {
+							background-color: var(--button-connect-background-color-hover);
+						}
+					}
+
+					&.disconnect {
+						background-color: var(--button-disconnect-background-color);
+
+						&:hover {
+							background-color: var(--button-disconnect-background-color-hover);
+						}
+					}
+				}
+
+				.link-profil {
+					border-radius: 999px;
+					margin-left: 1rem;
+					cursor: pointer;
+
+					> img.profil {
+						background-color: rgba(black, 0.1);
+						height: 3rem;
+						width: 3rem;
+						object-fit: cover;
+						border-radius: 999px;
+					}
+				}
+			}
+		}
+	}
+}
