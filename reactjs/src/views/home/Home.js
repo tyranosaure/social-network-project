@@ -5,5 +5,5 @@ import HomeFeed from "./logged/HomeFeed"
 export default function Home() {
 	const { isAuthenticated } = useAuth0()
 
-	return isAuthenticated ? <HomeFeed /> : <div>Home</div>
+	return isAuthenticated ? <HomeFeed /> : <HomeFeed />
 }

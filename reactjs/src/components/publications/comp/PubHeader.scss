@@ -1,0 +1,107 @@
+:root {
+	@media (prefers-color-scheme: light) {
+		--pub-header-border-bottom-color: rgba(0, 0, 0, 0.1);
+		--pub-header-manage-color: rgba(0, 0, 0, 0.25);
+		--pub-header-manage-open-color: rgba(0, 0, 0, 0.25);
+		--pub-header-manage-open-color-hover: rgba(0, 0, 0, 0.75);
+		--pub-header-manage-remove-color-hover: rgba(124, 0, 0, 0.75);
+		--pub-header-manage-edit-color-hover: rgba(20, 131, 0, 0.75);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		--pub-header-border-bottom-color: rgba(255, 255, 255, 0.1);
+		--pub-header-manage-color: rgba(255, 255, 255, 0.7);
+	}
+}
+
+.publication {
+	.pub-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 10px;
+		border-bottom: 1px solid var(--pub-header-border-bottom-color);
+		> div {
+			display: flex;
+			align-items: center;
+
+			&.user {
+				justify-content: start;
+
+				> img {
+					border-radius: 50%;
+					margin-right: 1rem;
+					width: 48px;
+					height: 48px;
+				}
+
+				span.user-name {
+					font-size: 1.25rem;
+					font-weight: 600;
+					cursor: pointer;
+				}
+			}
+
+			&.manage {
+				justify-content: end;
+
+				> .container {
+					overflow: hidden;
+					display: flex;
+					transition: all 250ms ease;
+					align-items: center;
+					justify-content: center;
+
+					&.open-dialog {
+						width: 60px;
+						opacity: 1;
+					}
+
+					&.close-dialog {
+						width: 0px;
+						opacity: 0;
+					}
+				}
+
+				button {
+					background-color: transparent;
+					border: none;
+					border-radius: 5px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					cursor: pointer;
+					font-size: 1.25rem;
+					margin-left: 0.5rem;
+					transition: all 250ms;
+
+					> * {
+						color: var(--pub-header-manage-color);
+						transition: all 250ms;
+					}
+
+					&.dots {
+						&.open {
+							transform: rotate(90deg);
+
+							> * {
+								color: var(--pub-header-manage-open-color);
+							}
+							> *:hover {
+								color: var(--pub-header-manage-open-color-hover);
+							}
+						}
+					}
+
+					&.remove > *:hover {
+						color: var(--pub-header-manage-remove-color-hover);
+					}
+
+					&.edit > *:hover {
+						color: var(--pub-header-manage-edit-color-hover);
+					}
+				}
+			}
+		}
+	}
+}

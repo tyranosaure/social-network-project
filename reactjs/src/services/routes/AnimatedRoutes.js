@@ -1,8 +1,8 @@
-import { Home, NotFound } from "@views/index"
-import { AnimatePresence } from "framer-motion"
-import { Routes } from "react-router-dom"
 import React from "react"
-import { Route, useLocation } from "react-router"
+import { Home, NotFound } from "@views/index"
+
+import { Route, Routes, useLocation } from "react-router-dom"
+import { AnimatePresence } from "framer-motion"
 
 export default function AnimatedRoutes() {
 	const location = useLocation()

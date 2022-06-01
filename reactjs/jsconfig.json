@@ -3,7 +3,6 @@
 		"baseUrl": ".",
 		"jsx": "react",
 		"target": "ES6",
-		"allowSyntheticDefaultImports": true,
 		"paths": {
 			"@components/*": ["./src/components/*"],
 			"@views/*": ["./src/views/*"],

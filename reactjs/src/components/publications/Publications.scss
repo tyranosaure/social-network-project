@@ -1,3 +1,23 @@
+:root {
+	@media (prefers-color-scheme: light) {
+		--pub-main-background: rgb(255, 255, 255);
+		--pub-main-border-bottom-color: rgba(0, 0, 0, 0.1);
+		--pub-main-text-color: rgb(0, 0, 0);
+	}
+
+	@media (prefers-color-scheme: dark) {
+		--pub-main-background: rgb(22, 27, 34);
+		--pub-main-border-bottom-color: rgba(255, 255, 255, 0.1);
+		--pub-main-text-color: rgba(255, 255, 255, 0.5);
+	}
+}
+
 .publication {
-	background-color: blue;
+	background-color: var(--pub-main-background);
+	border: 1px solid var(--pub-main-border-bottom-color);
+	border-radius: 0.25rem;
+
+	* {
+		color: var(--pub-main-text-color);
+	}
 }

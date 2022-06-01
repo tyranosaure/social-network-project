@@ -6,12 +6,13 @@ import { default as NavRoutes } from "./Routes.json"
 import { useSelector, useDispatch } from "react-redux"
 import { UserSlice } from "@services/index"
 import { useAuth0 } from "@auth0/auth0-react"
+import { ThreeDotsInLine } from "@components/index"
 
 export default function Navbar() {
 	const userRedux = useSelector((state) => state.user)
 	const dispatch = useDispatch()
 
-	const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0()
+	const { loginWithRedirect, logout, user, isAuthenticated, isLoading } = useAuth0()
 
 	useEffect(() => {
 		isAuthenticated && dispatch(UserSlice.login(user))
@@ -21,7 +22,7 @@ export default function Navbar() {
 	return (
 		<header className="navbar">
 			<nav>
-				<div className="container">
+				<div className="container" onClick={() => console.log(user)}>
 					<Link to="/" className="logo-container">
 						<img src={Logo} alt="" />
 					</Link>
@@ -34,17 +35,13 @@ export default function Navbar() {
 									</Link>
 								))}
 						</ul>
-						{userRedux.isLogged === undefined && (
-							<button className="login connect" onClick={loginWithRedirect}>
-								Chargement...
-							</button>
-						)}
-						{userRedux.isLogged === false && (
+						{isLoading && !isAuthenticated && <ThreeDotsInLine />}
+						{!isLoading && !isAuthenticated && (
 							<button className="login connect" onClick={loginWithRedirect}>
 								Se connecter
 							</button>
 						)}
-						{userRedux.isLogged === true && (
+						{isAuthenticated && userRedux.isLogged === true && (
 							<>
 								<button className="login disconnect" onClick={logout}>
 									Se déconnecter
