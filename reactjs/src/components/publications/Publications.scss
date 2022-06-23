@@ -17,7 +17,8 @@
 	border: 1px solid var(--pub-main-border-bottom-color);
 	border-radius: 0.25rem;
 
-	* {
+	span,
+	div {
 		color: var(--pub-main-text-color);
 	}
 }

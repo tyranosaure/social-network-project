@@ -12,11 +12,10 @@
 		justify-content: center;
 		position: relative;
 		height: 100%;
-		background-color: rgba(black, 0.5);
+		background-color: rgba(black, 0.6);
 
 		.close-modal {
 			position: absolute;
-			background-color: #fff;
 			top: 0;
 			right: 0;
 			width: 3rem;
@@ -26,16 +25,55 @@
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			cursor: pointer;
 			> .times {
-				font-size: 2rem;
+				font-size: 3rem;
 				vertical-align: baseline;
+				color: white;
+				transition: all 250ms;
+			}
+
+			&:hover {
+				> .times {
+					color: red;
+				}
 			}
 		}
-		> form-container {
+		> .form-container {
 			z-index: 1;
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+
+			> .content {
+				width: 50vw;
+				padding: 1rem;
+				outline: none;
+				font-size: 1.5rem;
+				border-radius: 5px;
+				border: none;
+			}
+
+			> .submit {
+				background-color: royalblue;
+				border: none;
+				padding: 1rem 1.5rem;
+				font-size: 1.5rem;
+				font-weight: 500;
+				margin-top: 2rem;
+				border-radius: 999px;
+				cursor: pointer;
+				transition: all 250ms;
+
+				&:hover:not(:disabled) {
+					filter: brightness(1.3);
+				}
+
+				&:disabled {
+					background-color: lightgray;
+					cursor: pointer;
+				}
+			}
 		}
 	}
 }

@@ -20,6 +20,8 @@ module.exports.getPublications = function (client, req, res) {
 			res.status(200)
 			res.send(result.rows)
 		} else {
+			res.status(400)
+			res.send(err)
 			console.log(err.message)
 		}
 	})

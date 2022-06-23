@@ -6,4 +6,4 @@ export { default as AuthConfig } from "./auth0/AuthConfig"
 export { default as ReduxStore } from "./redux/store"
 export * as UserSlice from "./redux/user/userSlice"
 // API
-export { AxiosClientPublication, AxiosClientComment, getPublications, postPublication, getComments, postComments } from "./api/index"
+export { AxiosClientPublication, AxiosClientComment, getPublications, postPublication, getComments, postComments, deletePublication } from "./api/index"

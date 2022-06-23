@@ -4,13 +4,11 @@ import "../Publications.scss"
 import "./PubWithText.scss"
 import PubHeader from "../comp/PubHeader"
 export default function PubWithText(props) {
-	const { user, post } = props
+	const { username, post, idPost } = props
 	return (
 		<div className="publication">
-			<PubHeader user={user} />
-			<div className="content" onClick={() => console.log(props)}>
-				{post}
-			</div>
+			<PubHeader user={username} id={idPost} />
+			<div className="content">{post}</div>
 			{/* <Commentary comments={comments} /> */}
 		</div>
 	)

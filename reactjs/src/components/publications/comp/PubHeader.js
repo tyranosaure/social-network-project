@@ -1,10 +1,11 @@
 import React, { useState } from "react"
 import "./PubHeader.scss"
 import { AiFillEdit, AiFillDelete, AiFillCaretDown } from "react-icons/ai"
+import { deletePublication } from "@services/index"
 
 export default function PubHeader(props) {
 	const [openDialog, setOpenDialog] = useState(false)
-	const { user } = props
+	const { user, id } = props
 	return (
 		<div className="pub-header">
 			<div className="user">
@@ -17,7 +18,7 @@ export default function PubHeader(props) {
 						<AiFillEdit />
 					</button>
 
-					<button className="remove">
+					<button className="remove" onClick={() => deletePublication("/publications", id)}>
 						<AiFillDelete />
 					</button>
 				</div>

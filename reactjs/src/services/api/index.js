@@ -9,5 +9,7 @@ export const AxiosClientPublication = axios.create({
 
 export { getPublications } from "./publication/get"
 export { postPublication } from "./publication/post"
+export { deletePublication } from "./publication/delete"
+
 export { getComments } from "./comment/get"
 export { postComments } from "./comment/post"
