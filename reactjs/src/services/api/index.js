@@ -1,7 +1,7 @@
 import axios from "axios"
 
 export const AxiosClientComment = axios.create({
-	baseURL: "http://localhost:8080/",
+	baseURL: "https://service-festival-commentaire-6mvg7oyrgq-ew.a.run.app/",
 })
 export const AxiosClientPublication = axios.create({
 	baseURL: "https://service-festival-publication-6mvg7oyrgq-ew.a.run.app/",
