@@ -1,17 +1,20 @@
 import React, { useState } from "react"
 import "./Pager.scss"
 export default function (props) {
-	const nbButton = props.total && props.limit ? Math.ceil(props.total / props.limit) : 10
+	const limit = props.limit && props.limit !== 0 ? props.limit : 1
+	const total = props.total ? props.total : 0
+
+	const nbButton = Math.ceil(total / limit)
 	const [activeBtn, setActiveBtn] = useState(0)
 
 	function getData(index) {
 		setActiveBtn(index)
-		props.getData(props.limit, props.limit * index)
+		props.getData(limit, limit * index)
 	}
 	return (
 		<div className="container-pager">
 			<div className="container">
-				{nbButton &&
+				{nbButton > 0 &&
 					Array(Math.ceil(nbButton))
 						.fill(1)
 						.map((el, i) => (

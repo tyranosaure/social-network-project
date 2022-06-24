@@ -5,7 +5,6 @@ import "./NewPub.scss"
 export default function NewPub({ content, user, email, setNewPub, newPub }) {
 	async function postNewPub() {
 		let res = await postPublication("/publications", { user: user, email: email, content: content })
-		console.log(res)
 		setNewPub({ ...newPub, show: false, content: "" })
 	}
 	return (

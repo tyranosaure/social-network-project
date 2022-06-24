@@ -14,12 +14,12 @@ export default function HomeFeed() {
 	async function getPubs(limit, offset) {
 		let data = await getPublications(`/publications/${limit}/${offset}`)
 		setPubs(data)
-		console.log(data)
 	}
 
 	useEffect(() => {
 		!pubs && getPubs(pager.limit, pager.offset)
 		userRedux && newPub.email === "" && setNewPub({ ...newPub, user: userRedux.name, email: userRedux.email })
+		newPub.show && getPubs(pager.limit, pager.offset)
 	})
 
 	return (

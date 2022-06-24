@@ -1,6 +1,6 @@
 import { AxiosClientComment } from "@services/index"
 
-export const postComments = async (url, pubID, data) => {
-	let res = await AxiosClientComment.post(url, { id: pubID, message: "Ronpiche" })
+export const postComments = async (url, data) => {
+	let res = await AxiosClientComment.post(url, data)
 	return res
 }

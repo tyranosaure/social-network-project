@@ -4,7 +4,7 @@ export const AxiosClientComment = axios.create({
 	baseURL: "http://localhost:8080/",
 })
 export const AxiosClientPublication = axios.create({
-	baseURL: "http://localhost:8081/",
+	baseURL: "https://service-festival-publication-6mvg7oyrgq-ew.a.run.app/",
 })
 
 export { getPublications } from "./publication/get"

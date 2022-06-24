@@ -9,7 +9,7 @@ export default function PubWithText(props) {
 		<div className="publication">
 			<PubHeader user={username} id={idPost} />
 			<div className="content">{post}</div>
-			{/* <Commentary comments={comments} /> */}
+			<Commentary idPost={idPost} />
 		</div>
 	)
 }

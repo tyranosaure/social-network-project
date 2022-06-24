@@ -1,31 +1,69 @@
 :root {
 	@media (prefers-color-scheme: light) {
 		--pub-commentary-border-top-color: rgba(0, 0, 0, 0.1);
+		--pub-commentary-text-color: rgba(0, 0, 0, 1);
 	}
 
 	@media (prefers-color-scheme: dark) {
 		--pub-commentary-border-top-color: rgba(255, 255, 255, 0.1);
+		--pub-commentary-text-color: rgba(255, 255, 255, 0.5);
 	}
 }
 
 .publication {
 	> .commentary {
-		padding: 10px;
 		border-top: 1px solid var(--pub-commentary-border-top-color);
+		transition: all 0.5s ease;
 
 		> .com {
 			display: flex;
 			align-items: center;
 			padding-bottom: 10px;
+			padding-left: 10px;
+			padding-right: 10px;
 
 			&:last-child {
 				padding-bottom: 0;
+			}
+
+			&:first-child {
+				padding-top: 10px;
 			}
 
 			> .user-name {
 				padding-right: 10px;
 				font-weight: 600;
 				cursor: pointer;
+			}
+
+			> * {
+				color: var(--pub-commentary-text-color);
+			}
+		}
+
+		> .no-result {
+			color: var(--pub-commentary-text-color);
+			text-align: center;
+			padding: 1rem 0;
+		}
+
+		.pager {
+			padding: 10px 0;
+		}
+
+		> .form-container {
+			display: flex;
+			align-items: center;
+			border-top: 1px solid var(--pub-commentary-border-top-color);
+			padding: 10px;
+			> .content {
+				flex: 1;
+				border: none;
+				outline: none;
+				font-size: 1rem;
+			}
+			> .submit {
+				padding: 0.5rem;
 			}
 		}
 	}
