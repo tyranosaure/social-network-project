@@ -1,5 +1,8 @@
+const { postComment } = require("../../db/insert/comments")
+
 module.exports = function (app, client) {
-	app.post("/users", (req, res) => {
-		res.send("Salut bg, ton paramètre était : " + JSON.stringify(req.body))
+	app.post("/comments", (req, res) => {
+		postComment(client, req, res)
+		client.end
 	})
 }
