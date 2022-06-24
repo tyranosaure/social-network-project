@@ -15,3 +15,18 @@ module.exports.getComments = function (client, req, res) {
 		}
 	})
 }
+module.exports.getTotalComments = function (client, req, res) {
+	let fkPost = parseInt(req.params.id)
+	let query = `Select count('idComments') as "total" from "comments" where fk_Post = ${fkPost}`
+
+	client.query(query, (err, result) => {
+		if (!err) {
+			res.status(200)
+			res.send(result.rows[0].total)
+		} else {
+			res.status(400)
+			res.send(err)
+			console.log(err.message)
+		}
+	})
+}
