@@ -2,11 +2,13 @@ import React from "react"
 import { postPublication } from "@services/index"
 import "./NewPub.scss"
 
-export default function NewPub({ content, user, email, setNewPub, newPub }) {
+export default function NewPub({ content, user, email, setNewPub, newPub, onPublish }) {
 	async function postNewPub() {
-		let res = await postPublication("/publications", { user: user, email: email, content: content })
+		await postPublication("/publications", { userName: user, userID: email, content: content })
 		setNewPub({ ...newPub, show: false, content: "" })
+		onPublish()
 	}
+
 	return (
 		<div className="new-pub-container">
 			<div className="container">

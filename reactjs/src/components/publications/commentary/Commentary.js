@@ -11,26 +11,26 @@ export default function Commentary(props) {
 	const userRedux = useSelector((state) => state.user.value)
 
 	async function getComs(limit, offset) {
-		let data = await getComments(`/comments/${limit}/${offset}/${props.idPost}`)
+		let data = await getComments(`/comments/${limit}/${offset}/${props.publicationID}`)
 		setComments(data)
 	}
 
 	async function getTotalComs() {
-		let data = await getComments(`/comments/${props.idPost}`)
+		let data = await getComments(`/comments/${props.publicationID}`)
 		setPager({ ...pager, total: data.data })
 	}
 
 	async function postNewComment() {
 		let username = userRedux.name ? userRedux.name : userRedux.email
-		let res = await postComments("/comments", { username: username, idPost: props.idPost, comments: newComment.content })
-		setNewComment({ ...newComment, content: "" })
-		if (res.statusCode === 201) {
+		await postComments("/comments", { userName: username, publicationID: props.publicationID, content: newComment.content }).then(() => {
+			setNewComment({ ...newComment, content: "" })
 			getComs(pager.limit, pager.offset)
-		}
+			getTotalComs()
+		})
 	}
 
 	useEffect(() => {
-		!comments && getComs(pager.limit, pager.offset)
+		comments === false && getComs(pager.limit, pager.offset)
 		userRedux && userRedux.name !== "" && newComment.name === "" && setNewComment({ ...newComment, username: userRedux.name })
 		userRedux && newComment.name === "" && setNewComment({ ...newComment, username: userRedux.email })
 		pager.total === -1 && getTotalComs()
@@ -41,7 +41,7 @@ export default function Commentary(props) {
 			{comments && comments.status === 200 && comments.data.length > 0 && (
 				<>
 					{comments.data.map((com) => (
-						<Com key={com.idComments} user={com.username} content={com.comments} />
+						<Com key={com.commentaireID} user={com.userName} content={com.content} />
 					))}
 					{pager.total !== -1 && (
 						<div className="pager">
@@ -50,12 +50,7 @@ export default function Commentary(props) {
 					)}
 				</>
 			)}
-			{comments.status === 200 && comments.data.length === 0 && (
-				<>
-					<div className="no-result">Aucun commentaire</div>
-					<Pager />
-				</>
-			)}
+			{comments.status === 200 && comments.data.length === 0 && <div className="no-result">Aucun commentaire</div>}
 			{userRedux && (
 				<div className="form-container">
 					<input

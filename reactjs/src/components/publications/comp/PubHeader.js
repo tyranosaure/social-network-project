@@ -1,11 +1,11 @@
 import React, { useState } from "react"
 import "./PubHeader.scss"
-import { AiFillEdit, AiFillDelete, AiFillCaretDown } from "react-icons/ai"
+import { AiFillDelete, AiFillCaretDown } from "react-icons/ai"
 import { deletePublication } from "@services/index"
 
 export default function PubHeader(props) {
 	const [openDialog, setOpenDialog] = useState(false)
-	const { user, id } = props
+	const { user, id, get } = props
 	return (
 		<div className="pub-header">
 			<div className="user">
@@ -14,11 +14,16 @@ export default function PubHeader(props) {
 			</div>
 			<div className="manage">
 				<div className={`container ${openDialog ? "open-dialog" : "close-dialog"}`}>
-					<button className="edit">
+					{/* <button className="edit">
 						<AiFillEdit />
-					</button>
+					</button> */}
 
-					<button className="remove" onClick={() => deletePublication("/publications", id)}>
+					<button
+						className="remove"
+						onClick={async () => {
+							await deletePublication("/publications", id).then(() => get())
+						}}
+					>
 						<AiFillDelete />
 					</button>
 				</div>

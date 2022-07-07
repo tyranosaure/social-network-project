@@ -17,16 +17,19 @@ export default function (props) {
 				{nbButton > 0 &&
 					Array(Math.ceil(nbButton))
 						.fill(1)
-						.map((el, i) => (
-							<button
-								key={i}
-								onClick={() => getData(i)}
-								disabled={activeBtn === i && true}
-								className={`item ${activeBtn === i && "active"}`}
-							>
-								{i + 1}
-							</button>
-						))}
+						.map(
+							(el, i) =>
+								Math.ceil(nbButton) > 1 && (
+									<button
+										key={i}
+										onClick={() => getData(i)}
+										disabled={activeBtn === i && true}
+										className={`item ${activeBtn === i && "active"}`}
+									>
+										{i + 1}
+									</button>
+								)
+						)}
 			</div>
 		</div>
 	)

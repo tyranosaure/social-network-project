@@ -4,15 +4,14 @@ const express = require("express")
 const app = express()
 
 // Données
-const client = require("./db/connection")
+const client = require("./db/connection").knex
 
 app.use(express.json(), cors())
 
 const port = 8080
+
 app.listen(port, () => {
 	console.log("Serveur à l'écoute du port : " + port)
 })
 
 routes(app, client)
-
-client.connect()

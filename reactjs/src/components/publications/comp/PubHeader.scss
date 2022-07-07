@@ -43,14 +43,14 @@
 			}
 
 			&.manage {
-				justify-content: end;
+				justify-content: flex-end;
 
 				> .container {
 					overflow: hidden;
 					display: flex;
 					transition: all 250ms ease;
 					align-items: center;
-					justify-content: center;
+					justify-content: flex-end;
 
 					&.open-dialog {
 						width: 60px;

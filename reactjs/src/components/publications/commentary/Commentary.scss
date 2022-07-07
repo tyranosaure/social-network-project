@@ -2,11 +2,13 @@
 	@media (prefers-color-scheme: light) {
 		--pub-commentary-border-top-color: rgba(0, 0, 0, 0.1);
 		--pub-commentary-text-color: rgba(0, 0, 0, 1);
+		--pub-commentary-text-content-color: rgba(0, 0, 0, 1);
 	}
 
 	@media (prefers-color-scheme: dark) {
 		--pub-commentary-border-top-color: rgba(255, 255, 255, 0.1);
 		--pub-commentary-text-color: rgba(255, 255, 255, 0.5);
+		--pub-commentary-text-content-color: rgba(255, 255, 255, 0.75);
 	}
 }
 
@@ -36,6 +38,10 @@
 				cursor: pointer;
 			}
 
+			> .content {
+				color: var(--pub-commentary-text-content-color);
+			}
+
 			> * {
 				color: var(--pub-commentary-text-color);
 			}
@@ -61,6 +67,8 @@
 				border: none;
 				outline: none;
 				font-size: 1rem;
+				background-color: transparent;
+				color: var(--pub-commentary-text-color);
 			}
 			> .submit {
 				padding: 0.5rem;

@@ -1,0 +1,18 @@
+.home-not-logged-home {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	.blue-square-container {
+		display: flex;
+		flex-wrap: wrap;
+		> .square {
+			height: 30px;
+			width: 30px;
+			background-color: blue;
+			margin: 10px;
+		}
+	}
+}

@@ -1,14 +1,12 @@
-module.exports.deletePublications = function (client, req, res) {
-	let { id } = req.body
-	let query = `delete from post where "idPost" = ${parseInt(id)};`
-	client.query(query, (err, result) => {
-		if (!err) {
+module.exports.deletePublications = async function (client, req, res) {
+	let { publicationID } = req.body
+
+	const query = await client
+		.where({ publicationID: publicationID })
+		.from("publication")
+		.del()
+		.then((result) => {
 			res.status(204)
 			res.send("publication deleted successfully")
-		} else {
-			console.log(err.message)
-			res.status(400)
-			res.send(err.message)
-		}
-	})
+		})
 }

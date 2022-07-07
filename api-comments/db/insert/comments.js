@@ -1,15 +1,16 @@
-module.exports.postComment = function (client, req, res) {
-	let { comments, idPost, username } = req.body
-	let query = `insert into comments ("comments","fk_post", "username") values ('${comments.toString()}', '${idPost}', '${username.toString()}');`
+module.exports.postComment = async function (client, req, res) {
+	let { content, publicationID, userName } = req.body
 
-	client.query(query, (err, result) => {
-		if (!err) {
+	const query = await client
+		.insert({ content: content, publicationID: publicationID, userName: userName })
+		.into("commentaire")
+		.then((result) => {
 			res.status(201)
 			res.send("insertion was successful")
-		} else {
+		})
+		.catch((err) => {
 			console.log(err.message)
 			res.status(400)
 			res.send(err.message)
-		}
-	})
+		})
 }
