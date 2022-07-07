@@ -1,17 +1,17 @@
 import axios from "axios"
 
-export const AxiosClientComment = axios.create({
-	baseURL: "http://localhost:8080/",
-})
-export const AxiosClientPublication = axios.create({
-	baseURL: "http://localhost:8081/",
-})
 // export const AxiosClientComment = axios.create({
-// 	baseURL: "https://service-festival-commentaire-6mvg7oyrgq-ew.a.run.app/",
+// 	baseURL: "http://localhost:8080/",
 // })
 // export const AxiosClientPublication = axios.create({
-// 	baseURL: "https://service-festival-publication-6mvg7oyrgq-ew.a.run.app/",
+// 	baseURL: "http://localhost:8081/",
 // })
+export const AxiosClientComment = axios.create({
+	baseURL: "https://service-festival-commentaire-6mvg7oyrgq-ew.a.run.app/",
+})
+export const AxiosClientPublication = axios.create({
+	baseURL: "https://service-festival-publication-6mvg7oyrgq-ew.a.run.app/",
+})
 
 export { getPublications } from "./publication/get"
 export { postPublication } from "./publication/post"
